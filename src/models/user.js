@@ -31,11 +31,11 @@ const userSchema = new mongoose.Schema({
     family: {
         type: String,
         trim: true,
+        lowercase: true,
     },
     user_role: {
         type: String,
         trim: true,
-        unique: true,
         default: 'user'
     },
     tokens: [{

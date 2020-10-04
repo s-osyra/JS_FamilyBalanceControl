@@ -6,7 +6,8 @@ const familyBalanceSchema = new mongoose.Schema({
     familyName: {
         type: String,
         unique: true,
-        required: true
+        required: true,
+        lowercase: true,
     },
     balance: {
         type: Number,
