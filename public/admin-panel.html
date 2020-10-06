@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="/css/style.css">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+	</head>
+
+	<body>
+		
+		<div id="login-view">
+			<div class="form-div" id="form-login">
+				<form>
+					<label style="font-size: 3vh;">Please log in:</label><br>
+					<label>Email: </label><br>
+					<input type="text" id="email"><br>
+					<label>Password: </label><br>
+					<input type="password" id="password"><br>
+					<input type="submit" value="Login">
+				</form>				
+			</div>
+		</div>
+		<div id="main-view">
+			<div class="side-container">
+				<button id="button-add-family">ADD FAMILY</button>
+				<button id="button-add-member">ADD MEMBER</button>
+				<button id="button-add-currency">ADD CURRENCY</button>
+				<button id="button-logout">LOGOUT</button>
+			</div>
+			<div class="main-container">
+				<div class="form-div" id="form-add-family">
+					<form>
+						<label style="font-size: 3vh;">Create family:</label><br>
+						<label>Family name: </label><br>
+						<input type="text" id="newFamilyName"><br>
+						<input type="submit" value="ADD">	
+					</form>
+				</div>
+				<div class="form-div" id="form-add-member">
+					<form>
+						<label style="font-size: 3vh;">Add family member</label><br>
+						<label>Family name: </label><br>
+						<input type="text" id="memberFamilyName"><br>
+						<label>User email: </label><br>
+						<input type="text" id="newMemberEmail"><br>
+						<input type="submit" value="ADD">	
+					</form>
+				</div>
+				</div>
+				<div class="form-div" id="form-add-currency">
+					<form>
+						<label style="font-size: 3vh;">Add currency</label><br>
+						<label>Family name: </label><br>
+						<input type="text" id="addFamilyCurrency"><br>
+						<label>Amount: </label><br>
+						<input type="text" id="amount"><br>
+						<input type="submit" value="ADD">	
+					</form>
+				</div>
+			</div>
+			<a id="info-msg"></a>
+		</div>
+		
+
+	<script src='/js/admin-panel.js'></script>
+	</body>
+</html>

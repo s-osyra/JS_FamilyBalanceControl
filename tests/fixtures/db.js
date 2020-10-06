@@ -43,7 +43,7 @@ const userTwo = {
 }
 
 const familyOne = {
-    familyname: 'familyOne',
+    familyName: 'familyOne',
     balance: 1000
 }
 
@@ -53,6 +53,7 @@ const setupDB = async () => {
     await new User (admin).save();
     await new User (userOne).save();
     await new User (userTwo).save();
+    await new Balance (familyOne).save();
 }
 
 module.exports = {
@@ -62,5 +63,6 @@ module.exports = {
     userOne,
     userTwo,
     admin,
+    familyOne,
     setupDB,
 }

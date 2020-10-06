@@ -6,9 +6,17 @@ const addUserToFamily = require('../utilis/add-user-to-family');
 const addCurrency = require('../utilis/add-currency');
 const removeUserFromFamily = require('../utilis/remove-user-from-family');
 const adminAuth = require('../middleware/admin-auth');
+const path = require('path');
 
 const router = new express.Router();
 
+const publicDirectoryPath =  path.join(__dirname, '/../../public')
+router.use(express.static(publicDirectoryPath))
+
+
+router.get('/admin/panel', (req, res) => {
+    res.sendFile(path.join(__dirname + '/../../public/admin-panel.html'));
+})
 
 
 router.post('/admin/family/create', auth, adminAuth, async (req, res) => {
@@ -19,21 +27,18 @@ router.post('/admin/family/create', auth, adminAuth, async (req, res) => {
         res.send(familyBalance);
     } catch (e) {
         res.status(500).send()
-    }
+    };
+});
 
-})
 
-
-router.post('/admin/family/add', auth, adminAuth, async (req, res) => {
+router.post('/admin/family/add',  async (req, res) => {
     try {
         const family = await addCurrency(req.body.familyName, req.body.amount)
-
         res.send(family);
     } catch (e) {
         res.status(500).send(e);
-    }
-})
-
+    };
+});
 
 router.post('/admin/family/addmember', auth, adminAuth, async (req, res) => {
     try {
@@ -42,8 +47,8 @@ router.post('/admin/family/addmember', auth, adminAuth, async (req, res) => {
 
     } catch (e) {
         res.status(500).send(e);
-    }
-})
+    };
+});
 
 router.post('/admin/family/removemember', auth, adminAuth, async (req, res) => {
     try {
@@ -52,8 +57,8 @@ router.post('/admin/family/removemember', auth, adminAuth, async (req, res) => {
 
     } catch (e) {
         res.status(500).send(e);
-    }
-})
+    };
+});
 
 
 router.post ('/admin/family/remove', auth, adminAuth, async (req, res) => {
@@ -64,14 +69,14 @@ router.post ('/admin/family/remove', auth, adminAuth, async (req, res) => {
 
         if(!balance) {
             res.status(404).send('Incorrect input data.');
-        }
+        };
 
         balance.remove();
 
         res.send(balance);
     } catch (e) {
         res.send(e);
-    }
-})
+    };
+});
 
 module.exports = router;
