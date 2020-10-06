@@ -18,22 +18,22 @@ CORS has been disabled in order to proceed with testing.
 ## Endpoints
 
 ### Admin:
-/admin/panel – [GET]  -  control panel for admin with basic operations
-/admin/family/create  - [POST] - create new family { familyName }
-/admin/family/add - [POST] – adding currency to family account { familyName, amount }
-/admin/family/addmember - [POST ]– adding member to family  { familyName, email }
-/admin/family/removemember - [POST] – removing member from family { email }
-/admin/family/remove - [POST] –  removing family { familyName }
+* /admin/panel – [GET]  -  control panel for admin with basic operations, tag
+* /admin/family/create  - [POST] - create new family { familyName },
+* /admin/family/add - [POST] – adding currency to family account { familyName, amount },
+* /admin/family/addmember - [POST ]– adding member to family  { familyName, email },
+* /admin/family/removemember - [POST] – removing member from family { email },
+* /admin/family/remove - [POST] –  removing family { familyName },
 
 ### Family balance:
-/balance – [GET] – returning family balance of authorized user
-/balance – [POST] – returning family balance of authorized user { amount }
+* /balance – [GET] – returning family balance of authorized user,
+* /balance – [POST] – returning family balance of authorized user { amount },
 
 ### User:
-/users – [POST] – creates new user { name, email, password }
-/users/login – [POST] – login user {email, password}
-/users/logout – [POST] – logout user from device
-/users/logoutall – [POST] – logout user from all devices
-/user/me – [PATCH] – update users data {name, email, password}
-/user/me – [DELETE] – delete user
-/user/me – [GET] – return information about authorized user
+* /users – [POST] – creates new user { name, email, password },
+* /users/login – [POST] – login user {email, password},
+* /users/logout – [POST] – logout user from device,
+* /users/logoutall – [POST] – logout user from all devices,
+* /user/me – [PATCH] – update users data {name, email, password},
+* /user/me – [DELETE] – delete user,
+* /user/me – [GET] – return information about authorized user
