@@ -17,7 +17,7 @@ CORS has been disabled in order to proceed with testing.
 
 ## Endpoints
 
-###Admin:
+### Admin:
 /admin/panel – [GET]  -  control panel for admin with basic operations
 /admin/family/create  - [POST] - create new family { familyName }
 /admin/family/add - [POST] – adding currency to family account { familyName, amount }
