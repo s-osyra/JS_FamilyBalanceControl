@@ -16,7 +16,8 @@ const admin = {
     family: 'administrator',
     tokens: [{
         token: jwt.sign({ _id: adminId }, process.env.JWT_SECRET)
-    }]
+    }
+    ]
 }
 
 const userOne = {
@@ -25,10 +26,11 @@ const userOne = {
     email: 'userone@example.com',
     password: 'userOnePassword!12!',
     user_role: 'user',
-    family: 'familyOne',
+    family: 'familyone',
     tokens: [{
         token: jwt.sign({ _id: userOneId }, process.env.JWT_SECRET)
-    }]
+    }
+]
 }
 
 const userTwo = {
@@ -39,11 +41,12 @@ const userTwo = {
     user_role: 'user',
     tokens: [{
         token: jwt.sign({ _id: userTwoId }, process.env.JWT_SECRET)
-    }]
+    }
+    ]
 }
 
 const familyOne = {
-    familyName: 'familyOne',
+    familyName: 'familyone',
     balance: 1000
 }
 

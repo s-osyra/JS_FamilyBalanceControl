@@ -28,24 +28,19 @@ const familyBalanceSchema = new mongoose.Schema({
             required: true,
         }
     }]
-})
-
+});
 
 familyBalanceSchema.virtual('users', {
     ref: 'User',
     localField: 'familyName',
     foreignField: 'family'
-})
-
+});
 
 familyBalanceSchema.pre('remove', async function (next) {
-    const balance = this
-    console.log('test');
+    const balance = this;
     const res = await User.updateMany({ family: balance.familyName }, {family: undefined});
-    console.log(res.n)
-    next()
-})
+    next();
+});
 
 const Balance = mongoose.model('Balance', familyBalanceSchema);
-
 module.exports = Balance

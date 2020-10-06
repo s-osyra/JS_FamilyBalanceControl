@@ -7,17 +7,13 @@ const addCurrency = require('../utilis/add-currency');
 const removeUserFromFamily = require('../utilis/remove-user-from-family');
 const adminAuth = require('../middleware/admin-auth');
 const path = require('path');
-
 const router = new express.Router();
-
-const publicDirectoryPath =  path.join(__dirname, '/../../public')
-router.use(express.static(publicDirectoryPath))
-
+const publicDirectoryPath =  path.join(__dirname, '/../../public');
+router.use(express.static(publicDirectoryPath));
 
 router.get('/admin/panel', (req, res) => {
     res.sendFile(path.join(__dirname + '/../../public/admin-panel.html'));
-})
-
+});
 
 router.post('/admin/family/create', auth, adminAuth, async (req, res) => {
 
@@ -29,7 +25,6 @@ router.post('/admin/family/create', auth, adminAuth, async (req, res) => {
         res.status(500).send()
     };
 });
-
 
 router.post('/admin/family/add',  async (req, res) => {
     try {
@@ -44,7 +39,6 @@ router.post('/admin/family/addmember', auth, adminAuth, async (req, res) => {
     try {
         const user = await addUserToFamily(req.body.email, req.body.familyName);
         res.send(user);
-
     } catch (e) {
         res.status(500).send(e);
     };
@@ -54,28 +48,21 @@ router.post('/admin/family/removemember', auth, adminAuth, async (req, res) => {
     try {
         const user = await removeUserFromFamily(req.body.email);
         res.send(user);
-
     } catch (e) {
         res.status(500).send(e);
     };
 });
 
-
 router.post ('/admin/family/remove', auth, adminAuth, async (req, res) => {
     try {
-
-
         const balance = await Balance.findOne({ familyName: req.body.familyName });
-
         if(!balance) {
             res.status(404).send('Incorrect input data.');
         };
-
         balance.remove();
-
-        res.send(balance);
+        res.send();
     } catch (e) {
-        res.send(e);
+        res.status(500).send();
     };
 });
 
