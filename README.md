@@ -10,6 +10,11 @@ Application saves history of all income and outcomes per family.
 
 After download or pulling app, redirect into download direction and run `npm update`.
 
+## SSL and HTTPS
+
+To generate self-signed certificate, navigate bash yo project folder and run command: 
+* `openssl req -nodes -new -x509 -keyout server.key -out server.cert`
+
 ## Database and ports control
 For changing environment for tests or development, please edit *.env files in config directory.
 After checking DB data, add admin with script: src/utilis/add-admin.js
